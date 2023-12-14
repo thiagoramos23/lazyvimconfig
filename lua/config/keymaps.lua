@@ -51,6 +51,7 @@ vim.keymap.set("n", "<leader>qq", vim.cmd.nohlsearch, opts)
 vim.keymap.set("n", "<leader>v", ":bnext<CR>", opts)
 vim.keymap.set("n", "<leader>z", ":bprevious<CR>", opts)
 vim.keymap.set("n", "<leader>d", ":BufDel<CR>", opts)
+vim.keymap.set("n", "<C-s>", "<Cmd>BufferPick<CR>", opts)
 
 -- Jump To Test
 local jump = require("jump-to-test-plugin")
