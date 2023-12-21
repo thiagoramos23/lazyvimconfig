@@ -38,6 +38,16 @@ vim.keymap.set("n", "<leader>rd", function()
   vim.cmd([[exec ":TestNearest" .. "--trace"]])
 end)
 
+-- FZF
+
+vim.keymap.set("n", "<C-p>", "<cmd>lua require('fzf-lua').files()<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>.", "<cmd>lua require('fzf-lua').buffers()<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<C-q>", "<cmd>lua require('fzf-lua').quickfix()<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<C-f>", "<cmd>lua require('fzf-lua').live_grep()<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<C-g>", "<cmd>lua require('fzf-lua').git_commits()<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>g", "<cmd>lua require('fzf-lua').grep_cword()<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>f", "<cmd>lua require('fzf-lua').grep_cWORD()<CR>", { noremap = true, silent = true })
+
 -- TMUX
 vim.keymap.set("n", "<C-h>", vim.cmd.TmuxNavigateLeft, opts)
 vim.keymap.set("n", "<C-j>", vim.cmd.TmuxNavigateDown, opts)
