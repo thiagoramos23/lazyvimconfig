@@ -62,6 +62,9 @@ vim.keymap.set("n", "<leader>v", ":bnext<CR>", opts)
 vim.keymap.set("n", "<leader>z", ":bprevious<CR>", opts)
 vim.keymap.set("n", "<leader>d", ":BufDel<CR>", opts)
 vim.keymap.set("n", "<C-s>", "<Cmd>BufferPick<CR>", opts)
+vim.keymap.set("n", "<leader>bo", function()
+  vim.cmd([[exec ":%bd\|e#\|bd#"]])
+end)
 
 -- Jump To Test
 local jump = require("jump-to-test-plugin")
