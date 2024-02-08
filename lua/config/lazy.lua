@@ -14,6 +14,7 @@ require("lazy").setup({
     -- { import = "lazyvim.plugins.extras.lang.typescript" },
     { import = "lazyvim.plugins.extras.lang.json" },
     { import = "lazyvim.plugins.extras.editor.aerial" },
+    { import = "lazyvim.plugins.extras.coding.copilot" },
     -- { import = "lazyvim.plugins.extras.ui.mini-animate" },
     -- import/override with your plugins
     { import = "plugins" },
@@ -29,11 +30,14 @@ require("lazy").setup({
   },
   change_detection = {
     -- automatically check for config file changes and reload the ui
-    enabled = true,
+    enabled = false,
     notify = false, -- get a notification when changes are found
   },
   install = { colorscheme = { "tokyonight", "habamax" } },
-  checker = { enabled = true }, -- automatically check for plugin updates
+  checker = {
+    enabled = false,
+    notify = false, -- get a notification when new updates are found
+  }, -- automatically check for plugin updates
   performance = {
     rtp = {
       -- disable some rtp plugins
