@@ -11,6 +11,16 @@ vim.keymap.set("n", "<leader>wd", "<C-W>c", { desc = "Delete window", remap = tr
 vim.keymap.set("n", "ss", "<C-W>s", { desc = "Split window below", remap = true })
 vim.keymap.set("n", "vv", "<C-W>v", { desc = "Split window right", remap = true })
 
+-- Text Misc
+vim.keymap.set("n", "L", "$")
+vim.keymap.set("n", "H", "^")
+vim.keymap.set("v", "L", "$")
+vim.keymap.set("v", "H", "^")
+vim.keymap.set("n", "U", "<C-r>")
+
+-- Git keymaps --
+vim.keymap.set("n", "<leader>gb", ":Gitsigns toggle_current_line_blame<cr>")
+
 -- Vim Test
 
 vim.keymap.set("n", "<leader>rn", function()
