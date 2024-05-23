@@ -12,9 +12,9 @@ require("lazy").setup({
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
     -- import any extras modules here
     -- { import = "lazyvim.plugins.extras.lang.typescript" },
-    { import = "lazyvim.plugins.extras.lang.json" },
+    -- { import = "lazyvim.plugins.extras.lang.json" },
     { import = "lazyvim.plugins.extras.editor.aerial" },
-    --{ import = "lazyvim.plugins.extras.coding.copilot" },
+    { import = "lazyvim.plugins.extras.coding.copilot" },
     -- { import = "lazyvim.plugins.extras.ui.mini-animate" },
     -- import/override with your plugins
     { import = "plugins" },
@@ -33,7 +33,7 @@ require("lazy").setup({
     enabled = false,
     notify = false, -- get a notification when changes are found
   },
-  install = { colorscheme = { "tokyonight", "habamax" } },
+  install = { colorscheme = { "gruvbox", "tokyonight", "habamax" } },
   checker = {
     enabled = false,
     notify = false, -- get a notification when new updates are found

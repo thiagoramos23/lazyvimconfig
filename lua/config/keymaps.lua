@@ -11,6 +11,20 @@ vim.keymap.set("n", "<leader>wd", "<C-W>c", { desc = "Delete window", remap = tr
 vim.keymap.set("n", "ss", "<C-W>s", { desc = "Split window below", remap = true })
 vim.keymap.set("n", "vv", "<C-W>v", { desc = "Split window right", remap = true })
 
+vim.keymap.set("n", "-", "<C-W>-", { desc = "Decrease Height", remap = true })
+vim.keymap.set("n", "+", "<C-W>+", { desc = "Increase Height", remap = true })
+vim.keymap.set("n", "<", "<C-W>>", { desc = "Increase Pane Right", remap = true })
+vim.keymap.set("n", ">", "<C-W><", { desc = "Increase Pane Left", remap = true })
+vim.keymap.set("n", "<leader>=", "<C-W>=", { desc = "Make all panes equal", remap = true })
+
+vim.keymap.set("n", "<leader>cc", ":CopilotChat<CR>", { desc = "Open Copilot Chat", remap = true })
+vim.keymap.set(
+  "n",
+  "<leader>ce",
+  ":CopilotChatExplain<CR>",
+  { desc = "Open Copilot Chat to Explain Something", remap = true }
+)
+
 -- Text Misc
 vim.keymap.set("n", "L", "$")
 vim.keymap.set("n", "H", "^")
