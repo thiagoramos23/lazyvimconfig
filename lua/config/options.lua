@@ -9,6 +9,7 @@ g["rspec_runner"] = "os_x_iterm2"
 g["test#strategy"] = "vimux"
 g["VimuxHeight"] = "30"
 
+vim.opt.guicursor = "n-v-i-c:block-Cursor"
 vim.opt.foldlevel = 3
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
