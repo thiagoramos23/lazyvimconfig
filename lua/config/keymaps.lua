@@ -17,7 +17,7 @@ vim.keymap.set("n", "<", "<C-W>>", { desc = "Increase Pane Right", remap = true 
 vim.keymap.set("n", ">", "<C-W><", { desc = "Increase Pane Left", remap = true })
 vim.keymap.set("n", "<leader>=", "<C-W>=", { desc = "Make all panes equal", remap = true })
 
-vim.keymap.set("n", "<leader>cc", ":CopilotChat<CR>", { desc = "Open Copilot Chat", remap = true })
+vim.keymap.set("n", "<leader>ct", ":CopilotChat<CR>", { desc = "Open Copilot Chat", remap = true })
 vim.keymap.set(
   "n",
   "<leader>ce",
