@@ -1,4 +1,4 @@
 return {
-  "tveskag/nvim-blame-line",
-  keys = { { "<leader>bl", "<cmd>:ToggleBlameLine<cr>", desc = "Toggle Blame Line" } },
+  "APZelos/blamer.nvim",
+  keys = { { "<leader>ba", "<cmd>BlamerToggle<cr>", desc = "Toggle Blame Line" } },
 }

@@ -10,6 +10,18 @@ return {
       debug = true, -- Enable debugging
       -- See Configuration section for rest
     },
+    keys = {
+      {
+        "<leader>ccq",
+        function()
+          local input = vim.fn.input("Quick Chat: ")
+          if input ~= "" then
+            require("CopilotChat").ask(input, { selection = require("CopilotChat.select").buffer })
+          end
+        end,
+        desc = "CopilotChat - Quick chat",
+      },
+    },
     -- See Commands section for default commands if you want to lazy load on them
   },
 }

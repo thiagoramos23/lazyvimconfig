@@ -9,6 +9,9 @@ g["rspec_runner"] = "os_x_iterm2"
 g["test#strategy"] = "vimux"
 g["VimuxHeight"] = "30"
 
+-- Vim Blame Line
+g["blamer_template"] = "<committer>, <committer-time> • <summary> <commit-short>"
+
 vim.opt.guicursor = "n-v-i-c:block-Cursor"
 vim.opt.foldlevel = 3
 vim.opt.foldmethod = "expr"

@@ -62,8 +62,35 @@ vim.keymap.set("n", "<leader>rd", function()
   vim.cmd([[exec ":TestNearest" .. "--trace"]])
 end)
 
--- FZF
+function TestCurrentFile()
+  local current_file = vim.fn.expand("%:p")
+  local cmd = 'IexTests.test("' .. current_file .. '")'
+  vim.cmd("TermExec cmd=" .. cmd .. "")
+end
 
+function TestCurrentLine()
+  local current_file = vim.fn.expand("%:p")
+  local current_line = vim.fn.line(".")
+  local cmd = 'IexTests.test("' .. current_file .. '", ' .. current_line .. ")"
+  vim.cmd("TermExec cmd='" .. cmd .. "'")
+end
+
+function WatchCurrentFile()
+  local current_file = vim.fn.expand("%:p")
+  local cmd = 'IexTests.test_watch("' .. current_file .. '")'
+  vim.cmd("TermExec cmd=" .. cmd .. "")
+end
+
+function MakeTest()
+  vim.cmd("TermExec cmd='iex --dbg pry -S mix'")
+end
+
+vim.keymap.set("n", "<leader>tf", ":lua TestCurrentFile()<CR>", { desc = "Test current file" })
+vim.keymap.set("n", "<leader>tl", ":lua TestCurrentLine()<CR>", { desc = "Test current line" })
+vim.keymap.set("n", "<leader>tw", ":lua WatchCurrentFile()<CR>", { desc = "Watch current file" })
+vim.keymap.set("n", "<leader>mt", ":lua MakeTest()<CR>", { desc = "Start Test Env" })
+
+-- FZF
 vim.keymap.set("n", "<C-p>", "<cmd>lua require('fzf-lua').files()<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>.", "<cmd>lua require('fzf-lua').buffers()<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<C-q>", "<cmd>lua require('fzf-lua').quickfix()<CR>", { noremap = true, silent = true })
