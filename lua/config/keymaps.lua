@@ -62,6 +62,25 @@ vim.keymap.set("n", "<leader>rd", function()
   vim.cmd([[exec ":TestNearest" .. "--trace"]])
 end)
 
+function TestCurrentFile()
+  local current_file = vim.fn.expand("%:p")
+  local cmd = 'mix test "' .. current_file .. '"'
+  vim.cmd("TermExec cmd=" .. cmd .. "")
+end
+
+function TestCurrentLine()
+  local current_file = vim.fn.expand("%:p")
+  local current_line = vim.fn.line(".")
+  local cmd = 'mix test "' .. current_file .. '":"' .. current_line .. '"'
+  vim.cmd("TermExec cmd='" .. cmd .. "'")
+end
+
+function WatchCurrentFile()
+  local current_file = vim.fn.expand("%:p")
+  local cmd = 'IexTests.test_watch("' .. current_file .. '")'
+  vim.cmd("TermExec cmd=" .. cmd .. "")
+end
+
 -- FZF
 
 vim.keymap.set("n", "<C-p>", "<cmd>lua require('fzf-lua').files()<CR>", { noremap = true, silent = true })
