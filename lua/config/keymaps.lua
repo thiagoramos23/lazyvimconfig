@@ -81,6 +81,10 @@ function WatchCurrentFile()
   vim.cmd("TermExec cmd=" .. cmd .. "")
 end
 
+vim.keymap.set("n", "<leader>tf", ":lua TestCurrentFile()<CR>", { desc = "Test current file" })
+vim.keymap.set("n", "<leader>tl", ":lua TestCurrentLine()<CR>", { desc = "Test current line" })
+vim.keymap.set("n", "<leader>tw", ":lua WatchCurrentFile()<CR>", { desc = "Watch current file" })
+
 -- FZF
 
 vim.keymap.set("n", "<C-p>", "<cmd>lua require('fzf-lua').files()<CR>", { noremap = true, silent = true })
