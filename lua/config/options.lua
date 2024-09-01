@@ -6,7 +6,7 @@ g.mapleader = ","
 
 -- Vim Test
 g["rspec_runner"] = "os_x_iterm2"
-g["test#strategy"] = "vimux"
+g["test#strategy"] = "toggleterm"
 g["VimuxHeight"] = "30"
 
 vim.opt.foldlevel = 3
