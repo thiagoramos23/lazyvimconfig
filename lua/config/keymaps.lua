@@ -17,6 +17,7 @@ vim.keymap.set("n", "<", "<C-W>>", { desc = "Increase Pane Right", remap = true 
 vim.keymap.set("n", ">", "<C-W><", { desc = "Increase Pane Left", remap = true })
 vim.keymap.set("n", "<leader>=", "<C-W>=", { desc = "Make all panes equal", remap = true })
 
+vim.keymap.set("n", "<leader>e", ":Oil<CR>")
 vim.keymap.set("n", "<leader>ct", ":CopilotChat<CR>", { desc = "Open Copilot Chat", remap = true })
 vim.keymap.set(
   "n",
@@ -30,7 +31,7 @@ vim.keymap.set("n", "L", "$")
 vim.keymap.set("n", "H", "^")
 vim.keymap.set("v", "L", "$")
 vim.keymap.set("v", "H", "^")
-vim.keymap.set("n", "U", "<C-r>")
+-- vim.keymap.set("n", "U", "<C-r>")
 
 -- Git keymaps --
 vim.keymap.set("n", "<leader>gb", ":Gitsigns toggle_current_line_blame<cr>")
@@ -71,7 +72,7 @@ end
 function TestCurrentLine()
   local current_file = vim.fn.expand("%:p")
   local current_line = vim.fn.line(".")
-  local cmd = 'IexTests.test("' .. current_file .. '", ' .. current_line .. ")"
+  local cmd = 'IexTests.test("' .. current_file .. ":" .. current_line .. ""
   vim.cmd("TermExec cmd='" .. cmd .. "'")
 end
 
@@ -122,3 +123,47 @@ local jump = require("jump-to-test-plugin")
 vim.keymap.set("n", "<leader>jt", function()
   jump.openTest()
 end)
+
+local harpoon = require("harpoon")
+harpoon:setup()
+vim.keymap.set("n", "<leader>a", function()
+  harpoon:list():add()
+end)
+vim.keymap.set("n", "<C-e>", function()
+  harpoon.ui:toggle_quick_menu(harpoon:list())
+end)
+
+vim.keymap.set("n", "<M-a>", function()
+  harpoon:list():select(1)
+end)
+vim.keymap.set("n", "<M-s>", function()
+  harpoon:list():select(2)
+end)
+vim.keymap.set("n", "<M-d>", function()
+  harpoon:list():select(3)
+end)
+vim.keymap.set("n", "<M-f>", function()
+  harpoon:list():select(4)
+end)
+
+-- Toggle previous & next buffers stored within Harpoon list
+vim.keymap.set("n", "<M-j>", function()
+  harpoon:list():prev()
+end)
+vim.keymap.set("n", "<M-k>", function()
+  harpoon:list():next()
+end)
+
+function _G.set_terminal_keymaps()
+  local opts = { buffer = 0 }
+  vim.keymap.set("t", "<esc>", [[<C-\><C-n>]], opts)
+  vim.keymap.set("t", "jk", [[<C-\><C-n>]], opts)
+  vim.keymap.set("t", "<C-h>", [[<Cmd>wincmd h<CR>]], opts)
+  vim.keymap.set("t", "<C-j>", [[<Cmd>wincmd j<CR>]], opts)
+  vim.keymap.set("t", "<C-k>", [[<Cmd>wincmd k<CR>]], opts)
+  vim.keymap.set("t", "<C-l>", [[<Cmd>wincmd l<CR>]], opts)
+  vim.keymap.set("t", "<C-w>", [[<C-\><C-n><C-w>]], opts)
+end
+
+-- if you only want these mappings for toggle term use term://*toggleterm#* instead
+vim.cmd("autocmd! TermOpen term://* lua set_terminal_keymaps()")

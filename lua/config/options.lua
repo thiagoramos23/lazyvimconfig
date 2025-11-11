@@ -13,6 +13,7 @@ g["VimuxHeight"] = "30"
 g["blamer_template"] = "<committer>, <committer-time> • <summary> <commit-short>"
 
 vim.opt.guicursor = "n-v-i-c:block-Cursor"
-vim.opt.foldlevel = 3
+vim.opt.foldlevel = 99
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+vim.opt.laststatus = 3

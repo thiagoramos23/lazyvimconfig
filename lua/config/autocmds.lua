@@ -3,30 +3,30 @@
 -- Add any additional autocmds here
 
 -- Define a function to format the current buffer with mix format
--- local function format_with_mix()
---   -- Get the full path of the current file
---   local file_path = vim.fn.expand("%:p")
---   if file_path == "" then
---     print("Buffer has no file path.")
---     return
---   end
---
---   local cmd = "mix format " .. file_path
---
---   -- Run the command asynchronously
---   vim.fn.jobstart(cmd, {
---     on_exit = function(j, return_val)
---       -- This function is called when the job exits
---       if return_val == 0 then
---         print("Formatted with mix format")
---         -- Optionally, reload the buffer to reflect any changes
---         vim.cmd("e")
---       else
---         print("mix format failed")
---       end
---     end,
---   })
--- end
+local function format_with_mix()
+  -- Get the full path of the current file
+  local file_path = vim.fn.expand("%:p")
+  if file_path == "" then
+    print("Buffer has no file path.")
+    return
+  end
+
+  local cmd = "mix format " .. file_path
+
+  -- Run the command asynchronously
+  vim.fn.jobstart(cmd, {
+    on_exit = function(_j, return_val)
+      -- This function is called when the job exits
+      if return_val == 0 then
+        print("Formatted with mix format")
+        -- Optionally, reload the buffer to reflect any changes
+        vim.cmd("e")
+      else
+        print("mix format failed")
+      end
+    end,
+  })
+end
 
 _G.sort_highlighted_lines = function()
   -- Get current buffer
@@ -55,7 +55,7 @@ vim.api.nvim_set_keymap(
 )
 
 -- Create an autocommand that formats Elixir files before saving
--- vim.api.nvim_create_autocmd("BufWritePost", {
---   pattern = { "*.ex", "*.exs" },
---   callback = format_with_mix,
--- })
+vim.api.nvim_create_autocmd("BufWritePost", {
+  pattern = { "*.ex", "*.exs" },
+  callback = format_with_mix,
+})
