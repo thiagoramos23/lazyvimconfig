@@ -1,21 +1,16 @@
-return {}
--- return {
---   {
---     "neovim/nvim-lspconfig",
---     opts = {
---       servers = {
---         lexical = {
---           filetypes = { "elixir", "eelixir" },
---           cmd = {
---             "/Users/quaseninja/Documents/work/opensource/lexical/_build/dev/package/lexical/bin/start_lexical.sh",
---           },
---           settings = {
---             lexical = {
---               format = { enabled = false },
---             },
---           },
---         },
---       },
---     },
---   },
--- }
+return {
+  {
+    "neovim/nvim-lspconfig",
+    opts = {
+      servers = {
+        expert = {
+          filetypes = { "elixir", "eelixir", "heex" },
+          cmd = {
+            "/Users/thiago/work/expert/apps/expert/burrito_out/expert_darwin_arm64",
+            "--stdio",
+          },
+        },
+      },
+    },
+  },
+}
